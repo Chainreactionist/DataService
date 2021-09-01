@@ -1,5 +1,3 @@
-local module = {}
---[[
 local Knit = require(game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("Knit"))
 local Players = game:GetService("Players")
 
@@ -14,19 +12,16 @@ function DataServiceExampleService:KnitStart()
 	local Player = Players:GetPlayers()[1]
 	
 	DataService.DataChanged:Connect(function(player)
-		print(player.Name .. "'s data has been changed")
+	    print(player.Name .. "'s data has been changed")
 	end)
 
 	local PlayerData = DataService:GetPlayerData(Player)
 
 	DataService:SetPlayerData(Player, function()
-    PlayerData.Coins = 100
-  end)
+    	    PlayerData.Coins = 100
+  	end)
 
   print(PlayerData)
 end
 
 return DataServiceExampleService
-]]
-
-return module
